@@ -263,7 +263,7 @@ ModelImporter:
     2100006: pcllo01_eye.001
     2100008: scf_pc_loyd_001
     4300000: pc_llo01
-    7400000: idle
+    7400000: loy_idle
     9500000: //RootNode
     13700000: pc_llo01
   externalObjects: {}
@@ -279,15 +279,9 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
-      in configuration does not match rotation in animation file:\n\t'Lforearmroll'
-      : rotation error = 12.217083 deg\n\t'Rforearmroll' : rotation error = 5.573219
-      deg\n"
+    rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
-      improve retargeting quality.\n\t'Spine' is inbetween humanoid transforms and
-      has rotation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -300,7 +294,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: idle
+      name: loy_idle
       takeName: Take 001
       firstFrame: 0
       lastFrame: 119

@@ -12,7 +12,7 @@ public class InputController {
     public delegate void onDpadReleasedHandler();
     public event onDpadReleasedHandler onDpadReleasedEvent;
 
-    public delegate void onBtnAttackClickedHandler(GameObject btnAttack);
+    public delegate void onBtnAttackClickedHandler();
     public event onBtnAttackClickedHandler onBtnAttackClickedEvent;
 
     public void notifyDpadDragging(int quadrant, float angle, float ratio)
@@ -25,8 +25,8 @@ public class InputController {
         onDpadReleasedEvent();
     }
 
-    public void notifyBtnAttackClicked(GameObject btnAttack)
+    public void notifyBtnAttackClicked()
     {
-        onBtnAttackClickedEvent(btnAttack);
+        onBtnAttackClickedEvent();
     }
 }

@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour {
         m_fsm.SwitchState((int)EnumPlayerState.Idle);
     }
 
-    public void onBtnAttackClicked(GameObject btnAttack)
+    public void onBtnAttackClicked()
     {
         m_fsm.SwitchState((int)EnumPlayerState.Attack1);
     }

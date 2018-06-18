@@ -14,6 +14,7 @@ public class Lzy_Joysticks : MonoBehaviour
     private Vector3 m_originJoystickBtnPos;
     private Vector3 m_initPosition;
     private float m_radius;
+    private CmdMgr m_sCmdMgr;
 
     void Awake()
     {
@@ -28,6 +29,7 @@ public class Lzy_Joysticks : MonoBehaviour
         //SetJoysticksAcitve(false);
         SetJoysticksAlpha(0.3f);
         AddListener();
+        m_sCmdMgr = GameObject.Find("Cube").GetComponent<CmdMgr>();
     }
 
     //不设置Active
@@ -117,7 +119,13 @@ public class Lzy_Joysticks : MonoBehaviour
         float angle = Mathf.Atan(dir1.y / dir1.x) * 180 / Mathf.PI;
         //Debug.Log("x: " + dir1.x + "; y: " + dir1.y);
         float ratio = Vector3.Distance(m_joystickBtn.position, m_initPosition) / m_radius;
-        InputController.Instance.notifyDpadDragging(quadrant, Mathf.Abs(angle), ratio);
+
+        CmdMove sCmd = new CmdMove();
+        sCmd.Init(quadrant, Mathf.Abs(angle), ratio);
+
+        m_sCmdMgr.CmdPush((CmdBase)sCmd);
+
+        //InputController.Instance.notifyDpadDragging(quadrant, Mathf.Abs(angle), ratio);
     }
 
     void EndDrag(GameObject go)

@@ -7,8 +7,6 @@ public class LoyCtrl : MonoBehaviour {
     public float speed = 2f;
     Animator anim;
 
-    private float attackTmp = 0f;
-
 	// Use this for initialization
 	void Start () {
         anim = this.GetComponent<Animator>();

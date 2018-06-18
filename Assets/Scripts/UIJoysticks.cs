@@ -10,6 +10,8 @@ public class UIJoysticks : MonoBehaviour {
 
     protected bool m_bDragging = false;
 
+    private CmdMgr m_sCmdMgr;
+
     // Use this for initialization
     void Start () {
         /*
@@ -21,6 +23,7 @@ public class UIJoysticks : MonoBehaviour {
         m_radius = 40 * (GameObject.Find("Canvas").gameObject.transform.localScale.x);
 
         m_initPosition = transform.position;
+        m_sCmdMgr = GameObject.Find("Cube").GetComponent<CmdMgr>();
     }
 
     // Update is called once per frame
@@ -81,7 +84,14 @@ public class UIJoysticks : MonoBehaviour {
         float angle = Mathf.Atan(dir1.y / dir1.x) * 180 / Mathf.PI;
         //Debug.Log("x: " + dir1.x + "; y: " + dir1.y);
         float ratio = Vector3.Distance(transform.position, m_initPosition) / m_radius;
-        InputController.Instance.notifyDpadDragging(quadrant, Mathf.Abs(angle), ratio);
+
+        CmdMove sCmd = new CmdMove();
+        sCmd.Init(quadrant, Mathf.Abs(angle), ratio);
+
+        m_sCmdMgr.CmdPush((CmdBase)sCmd);
+
+        // todo zhou
+        // InputController.Instance.notifyDpadDragging(quadrant, Mathf.Abs(angle), ratio);
     }
     
     public void OnDragBegin()
