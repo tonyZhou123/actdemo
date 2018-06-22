@@ -282,15 +282,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CommonFSM.cs" />
-    <Compile Include="Assets\Scripts\CommonFSMState.cs" />
+    <Compile Include="Assets\Scripts\Actor\ActorCtrl.cs" />
+    <Compile Include="Assets\Scripts\Actor\StateAttack.cs" />
+    <Compile Include="Assets\Scripts\Actor\StateBase.cs" />
+    <Compile Include="Assets\Scripts\Actor\StateIdel.cs" />
+    <Compile Include="Assets\Scripts\Actor\StateRun.cs" />
+    <Compile Include="Assets\Scripts\BattleCmd\CmdAttack.cs" />
+    <Compile Include="Assets\Scripts\BattleCmd\CmdBase.cs" />
+    <Compile Include="Assets\Scripts\BattleCmd\CmdMgr.cs" />
+    <Compile Include="Assets\Scripts\BattleCmd\CmdMove.cs" />
+    <Compile Include="Assets\Scripts\BattleCtrl.cs" />
     <Compile Include="Assets\Scripts\FollowCam.cs" />
     <Compile Include="Assets\Scripts\InputController.cs" />
     <Compile Include="Assets\Scripts\LoyCtrl.cs" />
-    <Compile Include="Assets\Scripts\PlayerAttack1State.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\PlayerIdleState.cs" />
-    <Compile Include="Assets\Scripts\PlayerRunState.cs" />
+    <Compile Include="Assets\Scripts\Lzy_Joysticks\Lzy_Joysticks.cs" />
+    <Compile Include="Assets\Scripts\Lzy_Joysticks\UIEventListener.cs" />
     <Compile Include="Assets\Scripts\UIController.cs" />
     <Compile Include="Assets\Scripts\UIJoysticks.cs" />
   </ItemGroup>
