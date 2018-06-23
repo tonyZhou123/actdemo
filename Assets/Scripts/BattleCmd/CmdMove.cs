@@ -8,8 +8,8 @@ public class CmdMove : CmdBase {
     private float m_fAngle;
     private float m_fRatio;
 
-    public CmdMove()
-        :base(BattleCmdType.BCT_MOVE)
+    public CmdMove(int iIdx)
+        :base(BattleCmdType.BCT_MOVE,iIdx)
     {
         m_iQuadrant = 0;
         m_fAngle = 0;

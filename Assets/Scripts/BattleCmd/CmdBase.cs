@@ -13,14 +13,21 @@ public enum BattleCmdType
 public class CmdBase {
 
     protected BattleCmdType m_eType;
+    protected int m_iIdx;
 
-	public CmdBase(BattleCmdType eType)
+	public CmdBase(BattleCmdType eType,int iIdx)
     {
         m_eType = eType;
+        m_iIdx = iIdx;
     }
 
     public BattleCmdType TypeGet()
     {
         return m_eType;
+    }
+
+    public int IdxGet()
+    {
+        return m_iIdx;
     }
 }

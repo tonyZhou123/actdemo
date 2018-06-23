@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class StateRun : StateBase {
 
-  
-
     public override BattleActorStateType GetStateID()
     {
         return BattleActorStateType.BAST_ATTACK;
@@ -25,6 +23,11 @@ public class StateRun : StateBase {
 
                 }
                 break;
+            case BattleInputType.BIT_REST:
+                {
+                    sActor.StateSet(new StateIdel());
+                }
+                break;
             default:
                 break;
         }
@@ -34,35 +37,26 @@ public class StateRun : StateBase {
     {
         if (sActor.m_iRunDir == 0)
         {
-            sActor.transform.position -= new Vector3(Time.fixedDeltaTime, 0, 0) * 14; //todo zhou
-            sActor.transform.rotation = Quaternion.Euler(Vector3.zero);
+            sActor.actorObj.transform.position -= new Vector3(Time.fixedDeltaTime, 0, 0) * 14; //todo zhou
+            sActor.actorObj.transform.rotation = Quaternion.Euler(Vector3.zero);
         }
         else
         {
-            sActor.transform.position += new Vector3(Time.fixedDeltaTime, 0, 0) * 14;
-            sActor.transform.rotation = Quaternion.Euler(new Vector3(0, 180f, 0));
+            sActor.actorObj.transform.position += new Vector3(Time.fixedDeltaTime, 0, 0) * 14;
+            sActor.actorObj.transform.rotation = Quaternion.Euler(new Vector3(0, 180f, 0));
         }
+
     }
 
 
     public override bool OnEnter(ActorCtrl sActor)
     {
-        /*
-        if (prevState != null && prevState.GetStateID() == (int)PlayerController.EnumPlayerState.Attack1)
-        {
-            return false;
-        }
-        */
-
-        //m_controller.m_anim.SetFloat("speedValue", 1.1f);
-        //m_iRunDir = (int)param1;
-
+        sActor.actorObj.GetComponent<Animator>().CrossFade("run", 0.1f, 0);
         return true;
     }
 
     public override bool OnLeave(ActorCtrl sActor)
     {
-        //m_controller.m_anim.SetFloat("speedValue", 0f);
         return true;
     }
 }

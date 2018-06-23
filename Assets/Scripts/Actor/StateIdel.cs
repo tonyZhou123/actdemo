@@ -22,7 +22,7 @@ public class StateIdel : StateBase {
                 break;
             case BattleInputType.BIT_MOVE:
                 {
-
+                    sActor.StateSet(new StateRun());
                 }
                 break;
             default:

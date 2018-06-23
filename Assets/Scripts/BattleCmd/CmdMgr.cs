@@ -66,7 +66,7 @@ public class CmdMgr : MonoBehaviour {
     }
     public void Awake()
     {
-        InvokeRepeating("LaunchCmd", 0.1f, 0.1f);  //0.1秒后，每0.1f调用一次
+       
     }
 
 
@@ -74,6 +74,7 @@ public class CmdMgr : MonoBehaviour {
     // Use this for initialization
     void Start () {
         m_lCmds = new LinkedList<CmdBase>();
+        InvokeRepeating("LaunchCmd", 0.1f, 0.1f);  //0.1秒后，每0.1f调用一次
     }
 	
 	// Update is called once per frame

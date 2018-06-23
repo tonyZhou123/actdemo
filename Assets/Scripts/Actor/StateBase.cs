@@ -4,7 +4,7 @@ public enum BattleInputType
 { 
     BIT_MOVE,
     BIT_ATTACK,
-    BIT_IDEL,
+    BIT_REST,
 }
 
 

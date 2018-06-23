@@ -24,7 +24,7 @@ public class UIController : MonoBehaviour {
     void OnBtnAttackClicked()
     {
         //InputController.Instance.notifyBtnAttackClicked(btnAttack);
-        CmdBase sCmd = new CmdAttack();
+        CmdBase sCmd = new CmdAttack(1);
         //sCmd.Init(btnAttack);
 
         m_sCmdMgr.CmdPush((CmdBase)sCmd);

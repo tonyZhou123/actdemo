@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CmdAttack : CmdBase
 {
-    public CmdAttack()
-     : base(BattleCmdType.BCT_ATTACK)
+    public CmdAttack(int iIdx)
+     : base(BattleCmdType.BCT_ATTACK,iIdx)
     {
   
     }

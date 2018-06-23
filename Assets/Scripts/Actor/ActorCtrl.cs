@@ -19,7 +19,7 @@ public class ActorCtrl : MonoBehaviour {
 
 
 
-    void StateSet(StateBase sState)
+    public void StateSet(StateBase sState)
     {
         m_sCurState = sState;
         m_sCurState.OnEnter(this);
@@ -96,7 +96,7 @@ public class ActorCtrl : MonoBehaviour {
 
     public void onDpadReleased()
     {
-        m_sCurState.InputHandle(this, BattleInputType.BIT_IDEL);
+        m_sCurState.InputHandle(this, BattleInputType.BIT_REST);
     }
 
     public void onBtnAttackClicked()

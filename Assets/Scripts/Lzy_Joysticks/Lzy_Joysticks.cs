@@ -120,7 +120,7 @@ public class Lzy_Joysticks : MonoBehaviour
         //Debug.Log("x: " + dir1.x + "; y: " + dir1.y);
         float ratio = Vector3.Distance(m_joystickBtn.position, m_initPosition) / m_radius;
 
-        CmdMove sCmd = new CmdMove();
+        CmdMove sCmd = new CmdMove(1);
         sCmd.Init(quadrant, Mathf.Abs(angle), ratio);
 
         m_sCmdMgr.CmdPush((CmdBase)sCmd);
