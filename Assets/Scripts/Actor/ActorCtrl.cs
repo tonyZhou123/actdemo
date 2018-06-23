@@ -22,6 +22,7 @@ public class ActorCtrl : MonoBehaviour {
     void StateSet(StateBase sState)
     {
         m_sCurState = sState;
+        m_sCurState.OnEnter(this);
     }
 
     // Use this for initialization

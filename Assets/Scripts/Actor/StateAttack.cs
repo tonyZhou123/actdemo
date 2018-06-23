@@ -33,13 +33,13 @@ public class StateAttack : StateBase {
 
     }
 
-    public override bool OnEnter(StateBase prevState, object param1, object param2)
+    public override bool OnEnter(ActorCtrl sActor)
     {
         //m_controller.m_anim.SetFloat("attackValue", 1.0f);
         return true;
     }
 
-    public override bool OnLeave(StateBase nextState, object param1, object param2)
+    public override bool OnLeave(ActorCtrl sActor)
     {
         //int nextStateID = nextState.GetStateID();
         //

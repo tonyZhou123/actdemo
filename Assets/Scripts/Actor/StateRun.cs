@@ -45,7 +45,7 @@ public class StateRun : StateBase {
     }
 
 
-    public override bool OnEnter(StateBase prevState, object param1, object param2)
+    public override bool OnEnter(ActorCtrl sActor)
     {
         /*
         if (prevState != null && prevState.GetStateID() == (int)PlayerController.EnumPlayerState.Attack1)
@@ -60,7 +60,7 @@ public class StateRun : StateBase {
         return true;
     }
 
-    public override bool OnLeave(StateBase nextState, object param1, object param2)
+    public override bool OnLeave(ActorCtrl sActor)
     {
         //m_controller.m_anim.SetFloat("speedValue", 0f);
         return true;

@@ -34,21 +34,12 @@ public class StateIdel : StateBase {
     public override void Update(ActorCtrl sActor)
     {
 
-        Animator m_anim = sActor.actorObj.GetComponent<Animator>();
-        AnimatorStateInfo animatorInfo = m_anim.GetCurrentAnimatorStateInfo(0);
-
-       
-        if (animatorInfo.normalizedTime >= 1.0f)
-        {
-            m_anim.CrossFade("run", 0.2f,0);
-            Debug.Log("Update" + animatorInfo.normalizedTime);
-        }
-
+   
 
     }
 
 
-    public override bool OnEnter(StateBase prevState, object param1, object param2)
+    public override bool OnEnter(ActorCtrl sActor)
     {
         //if (!m_controller.m_anim.GetCurrentAnimatorStateInfo(0).IsName("idle"))
         //{
@@ -61,10 +52,24 @@ public class StateIdel : StateBase {
         //
         //m_anim.CrossFade("idle", 0.2f, 0);
 
+
+
+        Animator m_anim = sActor.actorObj.GetComponent<Animator>();
+        AnimatorStateInfo animatorInfo = m_anim.GetCurrentAnimatorStateInfo(0);
+        //m_anim.Play("run",0,0);
+        m_anim.CrossFade("idle", 0.2f, 0);
+        if (animatorInfo.normalizedTime >= 1.0f)
+        {
+            Debug.Log("Update" + animatorInfo.normalizedTime);
+        }
+
+
+
+
         return true;
     }
 
-    public override bool OnLeave(StateBase nextState, object param1, object param2)
+    public override bool OnLeave(ActorCtrl sActor)
     {
         //m_controller.m_anim.SetBool("idle", false);
         return true;

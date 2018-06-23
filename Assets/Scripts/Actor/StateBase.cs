@@ -29,12 +29,12 @@ public abstract class StateBase
 
     }
 
-    public virtual bool OnLeave(StateBase nextState, object param1, object param2)
+    public virtual bool OnLeave(ActorCtrl sActor)
     {
         return true;
     }
 
-    public virtual bool OnEnter(StateBase prevState, object param1, object param2)
+    public virtual bool OnEnter(ActorCtrl sActor)
     {
         return true;
     }
