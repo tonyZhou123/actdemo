@@ -9,6 +9,7 @@ public class UIDefine
     /////////////////////////////////////////////////////////
     //public const string WhiteMask = "WhiteMask";
     //public const string BlackMask = "BlackMask";
+    public const string Loading = "Loading";
 }
 
 

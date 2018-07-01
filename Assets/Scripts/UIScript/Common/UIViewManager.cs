@@ -80,7 +80,6 @@ public class UIViewManager : Singleton<UIViewManager>
         }
     }
 
-    //private MaskGUI m_MaskPostProcess;
     private bool m_InitClipPlane;
 
     public Camera UICamera
@@ -275,7 +274,6 @@ public class UIViewManager : Singleton<UIViewManager>
         window.Root = CanvasRoot.transform;
         if (window.MaskType != EWindowMaskType.None)
         {
-            //TODO:要做事情
             //EventCenter.Notify(EventID.PlayerEvent_StopJoystick);
         }
         if (window.ShowMode == EWindowShowMode.SaveTarget && m_MutexStacks.Count > 0)
@@ -350,19 +348,6 @@ public class UIViewManager : Singleton<UIViewManager>
                 pair.Value.Destroy();
             }
         }
-        //TODO:遮罩问题
-        //if (m_MaskPostProcess != null)
-        //{
-        //    m_MaskPostProcess.Release();
-        //}
-        //if (m_MaskWhiteTransparent != null)
-        //{
-        //    m_MaskWhiteTransparent.Release();
-        //}
-        //if (m_MaskBlackTransparent != null)
-        //{
-        //    m_MaskBlackTransparent.Release();
-        //}
         m_MutexStacks.Clear();
         m_OpenWindows.Clear();
         m_FingerUpEventIgnoreObjects.Clear();
@@ -375,19 +360,6 @@ public class UIViewManager : Singleton<UIViewManager>
         {
             pair.Value.Destroy();
         }
-        //TODO:遮罩问题
-        //if (m_MaskPostProcess != null)
-        //{
-        //    m_MaskPostProcess.Release();
-        //}
-        //if (m_MaskWhiteTransparent != null)
-        //{
-        //    m_MaskWhiteTransparent.Release();
-        //}
-        //if (m_MaskBlackTransparent != null)
-        //{
-        //    m_MaskBlackTransparent.Release();
-        //}
         m_MutexStacks.Clear();
         m_OpenWindows.Clear();
         m_FingerUpEventIgnoreObjects.Clear();
@@ -399,142 +371,10 @@ public class UIViewManager : Singleton<UIViewManager>
 
     }
 
-    //public void SetEventReceiveActive(bool active)
-    //{
-    //    if (active == false)
-    //    {
-    //        NGUICamera.GetComponent<UICamera>().eventReceiverMask = 1 << KGameUtility.layerCutsceneUI;
-    //        NGUICamera.cullingMask = 1 << KGameUtility.layerCutsceneUI;
-    //    }
-    //    else
-    //    {
-    //        NGUICamera.GetComponent<UICamera>().eventReceiverMask = 1 << LayerMask.NameToLayer("UI");
-    //        NGUICamera.cullingMask = 1 << LayerMask.NameToLayer("UI");
-    //    }
-    //}
-
     public void SetCameraVisable(bool active)
     {
 
     }
-
-    //void FindPanels(UIViewBase window, List<UIPanel> panels)
-    //{
-    //    if (window == null || window.Root == null || window.transform == null)
-    //    {
-    //        return;
-    //    }
-    //    panels.AddRange(window.transform.GetComponentsInChildren<UIPanel>(true));
-    //}
-
-
-    //TODO：窗口深度
-    /// <summary>
-    /// 窗口深度排序
-    /// </summary>
-    /// <param name="window"></param>
-    //    void RefreshDepth(UIViewBase window)
-    //    {
-    //    EWindowType type = window.Type;
-    //    List<UIPanel> pList = new List<UIPanel>();
-    //    FindPanels(window, pList);
-
-    //    float minZ = m_PreMinZ[type];
-    //    Int32 stDepth = m_PreMinDepths[type];
-    //    Int32 maxDepth = stDepth;
-
-
-    //    for (int i = 0; i < m_OpenWindows.Count; i++)
-    //    {
-    //        UIViewBase w = m_OpenWindows[i];
-    //        if (w == null || w.transform == null)
-    //        {
-    //            Debug.LogError("不正常销毁的" + w.GetType());
-    //            continue;
-    //        }
-    //        if (w.Type != type)
-    //        {
-    //            continue;
-    //        }
-    //        if (w == window)
-    //        {
-    //            continue;
-    //        }
-
-    //        List<UIPanel> list = new List<UIPanel>();
-    //        FindPanels(w, list);
-    //        UIPanel m = w.Panel;
-    //        for (int k = 0; k < list.Count; k++)
-    //        {
-    //            UIPanel childPanel = list[k];
-    //            if (maxDepth < childPanel.depth)
-    //            {
-    //                maxDepth = childPanel.depth;
-    //            }
-    //            float zOffset = childPanel.transform.position.z - m.transform.position.z;
-    //            zOffset *= (1 / NGUIRoot.transform.localScale.z);
-    //            zOffset += m.transform.localPosition.z;
-    //            if (minZ > zOffset && zOffset > 0)
-    //            {
-    //                minZ = zOffset;
-    //            }
-    //        }
-    //    }
-
-
-    //    if (pList.Count >= 2)
-    //    {
-    //        pList.Sort(UIPanel.CompareFunc);
-    //    }
-
-
-    //    UIPanel mainPanel = window.Panel;
-    //    for (int i = 0; i < pList.Count; i++)
-    //    {
-    //        pList[i].depth = maxDepth + i + 2;
-    //        pList[i].useSortingOrder = true;
-    //        pList[i].sortingOrder = pList[i].depth;
-    //        pList[i].renderQueue = UIPanel.RenderQueue.Automatic;
-
-    //        if (window.IsNeedSortZ)
-    //        {
-    //            if (mainPanel == pList[i])
-    //            {
-    //                Vector3 pos = pList[i].transform.localPosition;
-    //                pos.z = -i * 400 + minZ;
-    //                pList[i].transform.localPosition = pos;
-    //            }
-    //            else
-    //            {
-    //                Vector3 pos = pList[i].transform.localPosition;
-    //                pos.z = -i * 400;
-    //                pList[i].transform.localPosition = pos;
-    //            }
-    //        }
-    //        else
-    //        {
-    //            Vector3 pos = pList[i].transform.localPosition;
-    //            if (mainPanel == pList[i])
-    //            {
-
-    //                pos.z = minZ;
-    //                pList[i].transform.localPosition = pos;
-    //            }
-    //            else
-    //            {
-    //                pos.z = 0;
-    //                pList[i].transform.localPosition = pos;
-    //            }
-    //        }
-    //    }
-
-    //    EEffectRenderQueue[] eEffectRenderQueues = window.transform.gameObject.GetComponentsInChildren<EEffectRenderQueue>();
-    //    for (int i = 0; i < eEffectRenderQueues.Length; i++)
-    //    {
-    //        eEffectRenderQueues[i].Calculate();
-    //    }
-    //}
-
 
     /// <summary>
     /// 处理窗口导航、互斥关系
@@ -662,7 +502,6 @@ public class UIViewManager : Singleton<UIViewManager>
         //ShowMask(needBlackView, ref m_MaskBlackTransparent, "assets/kgame/ui/prefabs/mask/maskblacktransparent.prefab");
         //ShowMask(needWhiteView, ref m_MaskWhiteTransparent, "assets/kgame/ui/prefabs/mask/maskwhitetransparent.prefab");
         ShowMask(needBlackView, needWhiteView);
-        //ShowMask(needPostProcessView, ref m_MaskPostProcess, "");
     }
 
     //刷新mask+排序

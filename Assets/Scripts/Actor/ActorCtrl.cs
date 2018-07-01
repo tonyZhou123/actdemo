@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class ActorCtrl : MonoBehaviour {
 
+    //通过ActorData来实例化具体
+    //public ActorCtrl(ActorData data)
+    //{
+    //    actorObj = GameObject.Instantiate(Resources.Load<GameObject>(data.actorPath));
+    //    m_anim = actorObj.GetComponent<Animator>();
+    //    if (m_anim == null)
+    //        m_anim = actorObj.GetComponentInChildren<Animator>();
+    //    if (data.playerControl)
+    //    {
+    //        InputController.Instance.onDpadDraggingEvent += onDpadDragging;
+    //        InputController.Instance.onDpadReleasedEvent += onDpadReleased;
+    //        InputController.Instance.onBtnAttackClickedEvent += onBtnAttackClicked;
+    //    }
+    //    m_speed = data.runspeed;
+
+    //}
     public GameObject actorPrefeb;   
     public GameObject actorObj;   //actor 实体 
     public int actorType;
